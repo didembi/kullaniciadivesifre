@@ -63,3 +63,38 @@ def kullaniciAdi_sifre_uret():
     except IOError:
         print("Dosya okuma/yazma hatasi oluştu.\n")
 import random
+def adimlar(satir):
+    kullaniciadiListesi = []
+    sifreListesi = []
+    if len(satir) >=2:    # eğer satırın içeriği 2 den fazlaysa devam et
+        ad = satir[1]
+        soyad = satir[2]
+        dogum_tarihi = satir[3]
+        dogum_yeri = satir[4]
+        dogum_yeri = str(dogum_yeri).replace("-", "")
+        dogum_tarihi = str(dogum_tarihi).split("-")
+        gun = int(dogum_tarihi[0])
+        ay = int(dogum_tarihi[1])
+        yil = int(dogum_tarihi[2])
+
+        Adim1 = ad[1] + ad[3]
+        Adim2 = soyad[-3:].replace(soyad[-2], soyad[0])
+        Adim3 = str(ay + gun) + str(yil)[-2:]
+
+        kullanici_adi = Adim2 + Adim1 + Adim3
+        kullaniciadiListesi.append(kullanici_adi)   # oluşturulan kullanıcı adını listeye ekleme
+
+        ozel_karakter = ["*", "/", "!", "_", "(", ")", "&", "%", "+", "-", ".", ",", "<", ">"]
+
+        yeni_karakter = random.choice(ozel_karakter)    # rastgele karakter seçimi
+        adim1 = ad[0] + ad[-1].upper()
+        adim2 = soyad[-2:].replace(soyad[-2], yeni_karakter)
+        adim3 = str(yil)[-2:] + str(ay ** 2)
+        adim4 = dogum_yeri[1:-2].title() + dogum_yeri[-2].upper()
+        adim5 = random.randint(10, 99)
+
+        sifre = adim4 + str(adim5) +adim1 + adim3 + str(adim2)
+
+        sifreListesi.append(sifre)     # oluşturulan şifreyi listeye ekleme
+        return kullaniciadiListesi, sifreListesi
+
