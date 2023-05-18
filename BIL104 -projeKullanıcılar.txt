@@ -1,0 +1,10 @@
+id,Ad,Soyad,Dogum-Tarihi,Dogum-Yeri
+1,Jason,	Statham,10-03-1981,Miami
+2,Ursula,Corbero,11-11-1988,Valencia
+3,	Dwayne,Johnson,15-05-1977,New-York
+4,Alvaro,Morte,01-11-1982	,Madrid
+5,Roberto,Mancini,26-10-1972,Roma
+6,Kobe,Bryant	,08-09-1975,Los Angeles
+7,Nina,Dobrev,23-12-1983,Sofya
+8,Steven	,Gerard,15-05-1980,Liverpool
+9,didem,bilek,26-05-2004,izmir
