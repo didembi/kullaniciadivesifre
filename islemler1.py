@@ -38,3 +38,27 @@ def kullanici_getir():
             print("Gecersiz id girdiniz.Tekrar deneyin.")
         except IOError :
             print("Dosya okuma hatasi!!!")      #hata varsa yazdır
+
+def kullaniciAdi_sifre_uret():
+    try:
+        with open("BIL104 -projeKullanıcılar.txt", "r") as f:  # dosyayı okuma modunda açma
+            satirlar = f.readlines()[1:]    # dosyanın içeriğini satırlara ayır ve ilk satırı atla
+            kullaniciadiListesi = []
+            sifreListesi = []
+            for satir in satirlar:
+                if len(satir) >=2:
+                    satir = satir.lower().replace("\n", "").replace("\t", "").replace(" ", "").split(",")
+                    adimlar_sonuc = adimlar(satir)  # adimlar() fonksiyonunu çağırma
+                    kullaniciadiListesi.append(adimlar_sonuc[0])  # oluşturulan kullanıcı adını listeye ekle
+                    sifreListesi.append(adimlar_sonuc[1])   # oluşturulan şifreyi listeye ekle
+
+        with open("kullaniciAdi_sifre.txt", "a") as f:   # dosyayı ekleme modunda açma
+            id = 0
+            for i in range(len(kullaniciadiListesi)):
+                id += 1    # id sayacı oluşturma
+                kullanici_adi = str(kullaniciadiListesi[i])
+                sifre = str(sifreListesi[i])   
+                satir = str(id) + ", " + kullanici_adi + ", " + sifre + "\n"
+                f.write(satir)    # dosyaya kullanıcı adını ve şifreyi yaz
+    except IOError:
+        print("Dosya okuma/yazma hatasi oluştu.\n")
