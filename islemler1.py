@@ -97,4 +97,20 @@ def adimlar(satir):
 
         sifreListesi.append(sifre)     # oluşturulan şifreyi listeye ekleme
         return kullaniciadiListesi, sifreListesi
+def anlik_uret():    # kullanıcıdan alınan bilgilerle anlık üretme
+    ad = input("Adiniz: ").lower()
+    soyad = input("Soyadiniz: ").lower()
+    dogum_tarihi = input("Doğum tarihini giriniz(gg-aa-yy): ").lower()
+    dogum_yeri = input("Doğum yerinizi giriniz: ").lower()
 
+    satir = str(0) + "," + ad + "," + soyad + "," + dogum_tarihi + "," + dogum_yeri    # oluşturlan satırın formatını ve elemanlarını belirleme
+    satir = satir.replace(" ", "").split(",")    # satırdaki elemanları virgüle göre elemanlarına ayırma
+
+    adimlar_sonuc = adimlar(satir)    # adimlar fonksiyonunu çağırma
+    if adimlar_sonuc is None:
+        print(" Kullanici adi ve şifre oluşturulamadi.")
+    else:
+        kullanici_adi, sifre = adimlar_sonuc
+        print("Kullanici adi: ", kullanici_adi)
+        print("Şifre: ", sifre)
+        return
