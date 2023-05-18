@@ -62,3 +62,4 @@ def kullaniciAdi_sifre_uret():
                 f.write(satir)    # dosyaya kullanıcı adını ve şifreyi yaz
     except IOError:
         print("Dosya okuma/yazma hatasi oluştu.\n")
+import random
