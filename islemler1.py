@@ -114,3 +114,4 @@ def anlik_uret():    # kullanıcıdan alınan bilgilerle anlık üretme
         print("Kullanici adi: ", kullanici_adi)
         print("Şifre: ", sifre)
         return
+#kod yazma işlemi bitti
